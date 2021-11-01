@@ -52,7 +52,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\ProfileArea\Data\" />
-    <Folder Include="Service\ProfileService\Interface\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProfileViewModel>
+﻿@model ProfileDataViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -127,7 +127,7 @@
                 @if (Model != null)
                 {
                     int sl = 1;
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.profileViewModels)
                     {
 
 

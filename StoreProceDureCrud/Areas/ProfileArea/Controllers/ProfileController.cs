@@ -18,12 +18,14 @@ namespace StoreProceDureCrud.Areas.ProfileArea.Controllers
         //GET:/ProfileArea/Profile/Index
         public IActionResult Index()
         {
-
-      
-
             List<ProfileViewModel> lstProfile = new List<ProfileViewModel>();
-            lstProfile = _profileService.GetProfilesList().ToList();
-            
+            ProfileDataViewModel data = new ProfileDataViewModel
+            {
+                profileViewModels = _profileService.GetProfilesList().ToList(),
+                countries=_profileService.GetAllCountries(),
+                genders = _profileService.GetAllGender(),
+                hobbies = _profileService.GetAllHobby()
+            };
 
             return View(lstProfile);
         }
