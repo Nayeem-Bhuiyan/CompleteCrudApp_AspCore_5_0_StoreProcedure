@@ -27,7 +27,7 @@ namespace StoreProceDureCrud.Areas.ProfileArea.Controllers
                 hobbies = _profileService.GetAllHobby()
             };
 
-            return View(lstProfile);
+            return View(data);
         }
 
         [HttpPost]

@@ -230,8 +230,6 @@ namespace StoreProceDureCrud.Service.ProfileService
             {
                 SqlCommand cmd = new SqlCommand("Sp_LoadAllCountry", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@StatementType", "Select");
-
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
 
@@ -256,8 +254,6 @@ namespace StoreProceDureCrud.Service.ProfileService
             {
                 SqlCommand cmd = new SqlCommand("Sp_LoadAllGender", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@StatementType", "Select");
-
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
 
@@ -279,7 +275,6 @@ namespace StoreProceDureCrud.Service.ProfileService
             {
                 SqlCommand cmd = new SqlCommand("Sp_LoadAllHobby", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@StatementType", "Select");
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
@@ -301,7 +296,6 @@ namespace StoreProceDureCrud.Service.ProfileService
             {
                 SqlCommand cmd = new SqlCommand("Sp_LoadAllCityByCountryId", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@StatementType", "Select");
                 cmd.Parameters.AddWithValue("@countryId", countryId);
 
                 con.Open();
@@ -326,7 +320,6 @@ namespace StoreProceDureCrud.Service.ProfileService
             {
                 SqlCommand cmd = new SqlCommand("Sp_LoadAllFavoriteHobbyByProfileId", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@StatementType", "Select");
                 cmd.Parameters.AddWithValue("@profileId", profileId);
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();

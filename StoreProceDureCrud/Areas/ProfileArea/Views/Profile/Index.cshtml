@@ -58,16 +58,38 @@
                     <label class="col-form-label">Gender</label>
                 </div>
                 <div class="col-md-4 col-sm-8 pb-2">
-                    <select class="form-control" id="GenderId" name="GenderId">
-                        <option value="">Select</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                        <option value="3">Other</option>
-                    </select>
+                    <div class="radio-inline">
+                        @foreach (var item in Model.genders)
+                        {
+                            <input type="radio" name="GenderId" value="@item.GenderId" class="radio" />@item.GenderName
+                        }
+                    </div>
                 </div>
-
                 <div class="col-md-2 col-sm-4 pb-2">
-                    <label class="col-form-label">test</label>
+                    <label class="col-form-label">Hobby</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                    <div class="checkbox-inline">
+                        @foreach (var item in Model.hobbies)
+                        {
+                            <input type="checkbox" name="HobbyId" value="@item.HobbyId" class="checkbox" />@item.HobbyName
+                        }
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">Country</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                        <select class="form-control" id="CountryID" name="CountryID">
+                            <option value="">Select</option>
+                            @foreach (var item in Model.countries)
+                            {
+                                <option value="@item.CountryID">@item.CountryName</option>
+                            }
+                        </select>
+                </div>
+                <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">Picture</label>
                 </div>
                 <div class="col-md-4 col-sm-8 pb-2">
                     <input type="text" name="test" id="test" value="" class="form-control" />
