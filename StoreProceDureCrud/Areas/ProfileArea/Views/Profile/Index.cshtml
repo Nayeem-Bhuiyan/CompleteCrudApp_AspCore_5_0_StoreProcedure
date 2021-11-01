@@ -1,0 +1,177 @@
+﻿@model IEnumerable<ProfileViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Style{
+    <style type="text/css">
+    </style>
+}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="text-primary">Crud operation In asp core Using Store procedure And Ajax With Image</h2><br /><br />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form action="/" method="post">
+            <input type="hidden" name="ProfileId" id="ProfileId" value="0" />
+            <div class="row">
+                <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">Name</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                    <input type="text" name="Name" id="Name" value="" class="form-control" />
+                </div>
+
+                <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">Email</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                    <input type="email" name="email" id="email" value="" class="form-control" />
+                </div>
+
+                <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">Contact</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                    <input type="text" name="contact" id="contact" value="" class="form-control" />
+                </div>
+
+                <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">Website</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                    <input type="text" name="websiteLink" id="websiteLink" value="" class="form-control" />
+                </div>
+
+
+
+                <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">Password</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                    <input type="password" name="Password" id="Password" value="" class="form-control" />
+                </div>
+
+                <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">Gender</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                    <select class="form-control" id="GenderId" name="GenderId">
+                        <option value="">Select</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="3">Other</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">test</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                    <input type="text" name="test" id="test" value="" class="form-control" />
+                </div>
+
+                <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">test</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                    <input type="text" name="test" id="test" value="" class="form-control" />
+                </div>
+
+                <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">test</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                    <input type="text" name="test" id="test" value="" class="form-control" />
+                </div>
+
+                <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">test</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                    <input type="text" name="test" id="test" value="" class="form-control" />
+                </div>
+
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <br /><br />
+        <table class="table table-bordered table-striped dt-responsive text-nowrap" style="width:100%" id="tblData">
+            <thead>
+                <tr>
+                    <th>SL#</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>DOB</th>
+                    <th>Password</th>
+                    <th>Image</th>
+                    <th>Website Link</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>My Hobbies</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    int sl = 1;
+                    @foreach (var item in Model)
+                    {
+
+
+                <tr>
+                    <td>@sl</td>
+                    <td>@item?.Name</td>
+                    <td>@item?.contact</td>
+                    <td>@item?.email</td>
+                    <td>@item?.genderName</td>
+                    <td>@item?.dateOfBirth?.ToString("dd-MM-yyyy")</td>
+                    <td>@item?.Password</td>
+                    <td><img src="/@item?.ProfileImage" height="50" width="50" alt="Alternate Text" /></td>
+                    <td><a href="@item?.websiteLink" target="_blank">@item?.websiteLink</a></td>
+                    <td>@item?.countryName</td>
+                    <td>@item?.cityName</td>
+                    <td>
+                        @foreach (var hoby in item.Hobbies)
+                        {
+                            <span class="d-none">@hoby.HobbyId</span><span>@hoby.HobbyName  </span>
+                        }
+                    </td>
+                    <td>@item?.Remarks</td>
+                </tr>
+                        sl = sl + 1;
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td>No Data Has Found</td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+           
+            $('#tblData').DataTable();
+        });
+    </script>
+}

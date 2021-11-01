@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - StoreProceDureCrud</title>
+
+    <link href="~/AllScripts/bootstrap-4.6.0-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/AllScripts/DataTable_BS4/DataTables-1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/AllScripts/DataTable_BS4/Responsive-2.2.9/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+
+    <link href="~/AllScripts/flatpickr/package/dist/flatpickr.min.css" rel="stylesheet" />
+    <link href="~/AllScripts/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/AllScripts/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @await RenderSectionAsync("Style", required: false)
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="ProfileArea" asp-controller="Profile" asp-action="Index">StoreProceDureCrud</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="ProfileArea" asp-controller="Profile" asp-action="Index">Profile</a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+
+        @RenderBody()
+
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - StoreProceDureCrud - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/AllScripts/DataTable_BS4/jQuery-3.6.0/jquery-3.6.0.min.js"></script>
+    <script src="~/AllScripts/js/common.js"></script>
+    <script src="~/AllScripts/DataTable_BS4/Bootstrap-4-4.6.0/js/bootstrap.min.js"></script>
+
+    <script src="~/AllScripts/DataTable_BS4/DataTables-1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="~/AllScripts/DataTable_BS4/DataTables-1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/AllScripts/DataTable_BS4/Responsive-2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="~/AllScripts/DataTable_BS4/Responsive-2.2.9/js/responsive.bootstrap4.min.js"></script>
+
+    <script src="~/AllScripts/flatpickr/package/dist/flatpickr.min.js"></script>
+    <script src="~/AllScripts/select2/js/select2.full.min.js"></script>
+    <script src="~/AllScripts/sweetalert2/dist/sweetalert2.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
