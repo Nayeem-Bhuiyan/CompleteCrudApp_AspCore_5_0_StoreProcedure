@@ -9,7 +9,7 @@
 }
 <div class="row">
     <div class="col-md-12">
-        <h2 class="text-primary">Crud operation In asp core Using Store procedure And Ajax With Image</h2><br /><br />
+        <h2 class="text-primary">Crud operation In asp core Using Store procedure And Ajax</h2><br /><br />
     </div>
 </div>
 <div class="row">
@@ -66,6 +66,18 @@
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-4 pb-2">
+                    <label class="col-form-label">Country</label>
+                </div>
+                <div class="col-md-4 col-sm-8 pb-2">
+                    <select class="form-control" id="CountryID" name="CountryID">
+                        <option value="">Select</option>
+                        @foreach (var item in Model.countries)
+                        {
+                            <option value="@item.CountryID">@item.CountryName</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-2 col-sm-4 pb-2">
                     <label class="col-form-label">Hobby</label>
                 </div>
                 <div class="col-md-4 col-sm-8 pb-2">
@@ -76,46 +88,41 @@
                         }
                     </div>
                 </div>
+
                 <div class="col-md-2 col-sm-4 pb-2">
-                    <label class="col-form-label">Country</label>
+                    <label class="col-form-label">City</label>
                 </div>
                 <div class="col-md-4 col-sm-8 pb-2">
-                        <select class="form-control" id="CountryID" name="CountryID">
-                            <option value="">Select</option>
-                            @foreach (var item in Model.countries)
-                            {
-                                <option value="@item.CountryID">@item.CountryName</option>
-                            }
-                        </select>
+                    <select class="form-control" id="CityId" name="CityId">
+                        <option value="">Select</option>
+                    </select>
                 </div>
                 <div class="col-md-2 col-sm-4 pb-2">
                     <label class="col-form-label">Picture</label>
                 </div>
                 <div class="col-md-4 col-sm-8 pb-2">
-                    <input type="text" name="test" id="test" value="" class="form-control" />
+                    <input type="file" name="ImageUrl" id="ImageUrl" value="" class="form-control" />
                 </div>
 
                 <div class="col-md-2 col-sm-4 pb-2">
-                    <label class="col-form-label">test</label>
+                    <label class="col-form-label">DateOfBirth</label>
                 </div>
                 <div class="col-md-4 col-sm-8 pb-2">
-                    <input type="text" name="test" id="test" value="" class="form-control" />
+                    <input type="text" name="dateOfBirth" id="dateOfBirth" value="" class="form-control" />
                 </div>
 
                 <div class="col-md-2 col-sm-4 pb-2">
-                    <label class="col-form-label">test</label>
+                    <label class="col-form-label">Remarks</label>
                 </div>
                 <div class="col-md-4 col-sm-8 pb-2">
-                    <input type="text" name="test" id="test" value="" class="form-control" />
+                    <textarea id="Remarks" name="Remarks" cols="3" class="form-control"></textarea>
                 </div>
 
                 <div class="col-md-2 col-sm-4 pb-2">
-                    <label class="col-form-label">test</label>
                 </div>
                 <div class="col-md-4 col-sm-8 pb-2">
-                    <input type="text" name="test" id="test" value="" class="form-control" />
+                    <button type="submit" class="btn btn-primary" id="btnSave">Save</button>
                 </div>
-
 
 
             </div>
@@ -192,8 +199,24 @@
 @section Scripts{
     <script>
         $(document).ready(function () {
-           
+            $('#dateOfBirth').flatpickr({ dateFormat: "Y-m-d", minDate: "@DateTime.Now.ToString("MM/dd/yyyy")" });
             $('#tblData').DataTable();
         });
+
+        $("#CountryID").change(function() {
+            Common.Ajax('GET', '/ProfileArea/Profile/LoadCityByCountry/' + $(this).val(), [], 'json', ajaxLoadCityByCountry);
+        })
+
+        function ajaxLoadCityByCountry(response) {
+            $("#CityId").empty();
+            $("#CityId").append('<option value="">Select</option>');
+            $.each(response, function (index,item) {
+                $("#CityId").append(
+                    `<option value="${item.CityId}">${item.cityName}</option>`
+                )
+            })
+
+        }
+
     </script>
 }

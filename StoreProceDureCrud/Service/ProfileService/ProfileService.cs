@@ -288,7 +288,7 @@ namespace StoreProceDureCrud.Service.ProfileService
             }
             return lstHobby;
         }
-        public IEnumerable<City> GetAllCityByCountry(int countryId)
+        public IEnumerable<City> GetAllCityByCountry(int? countryId)
         {
             List<City> lstCity = new List<City>();
 
@@ -313,7 +313,7 @@ namespace StoreProceDureCrud.Service.ProfileService
             }
             return lstCity;
         }
-        public IEnumerable<Hobby> GetAllHobbyByCountry(int profileId)
+        public IEnumerable<Hobby> GetAllHobbyByProfileId(int? profileId)
         {
             List<Hobby> lstHobby = new List<Hobby>();
             using (SqlConnection con = new SqlConnection(connectionString))

@@ -55,19 +55,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\CODEOWNERS" />
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\CONTRIBUTING.md" />
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\ISSUE_TEMPLATE\bug_report.md" />
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\ISSUE_TEMPLATE\feature_request.md" />
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\SUPPORT.md" />
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\workflows\browserstack.yml" />
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\workflows\bundlewatch.yml" />
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\workflows\codeql.yml" />
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\workflows\css.yml" />
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\workflows\dart-sass.yml" />
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\workflows\docs.yml" />
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\workflows\js.yml" />
-    <None Include="wwwroot\AllScripts\bootstrap-4.6.0\.github\workflows\lint.yml" />
     <None Include="wwwroot\AllScripts\fontAwsomePro 5.15.3\font-awesome-pro-master\.github\pull_request_template.md" />
     <None Include="wwwroot\AllScripts\Jquery_3.6.0\node_modules\jquery\dist\jquery.js" />
     <None Include="wwwroot\AllScripts\Jquery_3.6.0\node_modules\jquery\dist\jquery.min.js" />

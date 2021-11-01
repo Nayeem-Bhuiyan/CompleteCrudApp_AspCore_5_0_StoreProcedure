@@ -73,5 +73,15 @@ namespace StoreProceDureCrud.Areas.ProfileArea.Controllers
         }
 
 
+
+        public IActionResult LoadCityByCountry(int? id)
+        {
+            return Json(_profileService.GetAllCityByCountry(id));
+        }
+
+        public IActionResult LoadHobbyByProfile(int? id)
+        {
+            return Json(_profileService.GetAllHobbyByProfileId(id));
+        }
     }
 }
